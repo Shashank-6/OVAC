@@ -1,0 +1,1227 @@
+[
+    {
+        "id": "8fb99a91.0cc428",
+        "type": "inject",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 101.25,
+        "y": 1049,
+        "wires": [
+            [
+                "3b79aa46.ee25a6"
+            ]
+        ]
+    },
+    {
+        "id": "2d30dc6.c1aad24",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload= [msg.payload.name,msg.payload.vicinity];\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 623.9642944335938,
+        "y": 245.75,
+        "wires": [
+            [
+                "b5c00458.64aff8",
+                "8598774e.54a988"
+            ]
+        ]
+    },
+    {
+        "id": "6c28a516.35c624",
+        "type": "http in",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "url": "/near",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 155.67857360839844,
+        "y": 459.5,
+        "wires": [
+            [
+                "14bed0a4.36aeb7"
+            ]
+        ]
+    },
+    {
+        "id": "6167eae.112f894",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload= [msg.payload.name,msg.payload.vicinity];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 674.25,
+        "y": 412,
+        "wires": [
+            [
+                "48c65394.8dddbc",
+                "6e4a705a.8e6c6"
+            ]
+        ]
+    },
+    {
+        "id": "ac9602ab.3caa2",
+        "type": "http in",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "url": "/near",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 110.42857360839844,
+        "y": 118,
+        "wires": [
+            [
+                "21e98415.a82574"
+            ]
+        ]
+    },
+    {
+        "id": "d78f7905.ba8288",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload= [msg.payload.name,msg.payload.vicinity];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 629,
+        "y": 70.5,
+        "wires": [
+            [
+                "a2af639a.90d62",
+                "3ff5a5ae.7ab0c2"
+            ]
+        ]
+    },
+    {
+        "id": "50822484.487d34",
+        "type": "http in",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "url": "/hospital",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 139.42857360839844,
+        "y": 618,
+        "wires": [
+            [
+                "c9f94788.387778"
+            ]
+        ]
+    },
+    {
+        "id": "f2ec6e85.c7737",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload= [msg.payload.name,msg.payload.vicinity];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 648,
+        "y": 570.5,
+        "wires": [
+            [
+                "914b98a0.1d4d18",
+                "aac6f272.b7329"
+            ]
+        ]
+    },
+    {
+        "id": "29656e53.916c62",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "Retrieving Gps Data",
+        "func": "var latitude = {payload: JSON.stringify(context.global.d.latitude)};\nvar longitude = {payload: JSON.stringify(context.global.d.longitude)};\n//var Help= {payload: 'Help me'};\nmsg.payload = {\n                                  \n                                 'lat':parseFloat(latitude.payload),\n                                 'lon':parseFloat(longitude.payload),\n                                 \n                                \n                   \n              };\nmsg.location=msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 371,
+        "y": 187,
+        "wires": [
+            [
+                "b6634670.2fed1"
+            ]
+        ]
+    },
+    {
+        "id": "43635695.efb03",
+        "type": "http in",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "url": "/near",
+        "method": "get",
+        "swaggerDoc": "",
+        "x": 107,
+        "y": 296.5,
+        "wires": [
+            [
+                "29656e53.916c62"
+            ]
+        ]
+    },
+    {
+        "id": "21e98415.a82574",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "Retrieving Gps Data",
+        "func": "var latitude = {payload: JSON.stringify(context.global.d.latitude)};\nvar longitude = {payload: JSON.stringify(context.global.d.longitude)};\n//var Help= {payload: 'Help me'};\nmsg.payload = {\n                                  \n                                 'lat':parseFloat(latitude.payload),\n                                 'lon':parseFloat(longitude.payload),\n                                 \n                                \n                   \n              };\nmsg.location=msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 305,
+        "y": 54,
+        "wires": [
+            [
+                "fb071f2f.9af93"
+            ]
+        ]
+    },
+    {
+        "id": "14bed0a4.36aeb7",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "Retrieving Gps Data",
+        "func": "var latitude = {payload: JSON.stringify(context.global.d.latitude)};\nvar longitude = {payload: JSON.stringify(context.global.d.longitude)};\n//var Help= {payload: 'Help me'};\nmsg.payload = {\n                                  \n                                 'lat':parseFloat(latitude.payload),\n                                 'lon':parseFloat(longitude.payload),\n                                 \n                                \n                   \n              };\nmsg.location=msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 323,
+        "y": 379,
+        "wires": [
+            [
+                "be3583e.88b6a"
+            ]
+        ]
+    },
+    {
+        "id": "c9f94788.387778",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "Retrieving Gps Data",
+        "func": "var latitude = {payload: JSON.stringify(context.global.d.latitude)};\nvar longitude = {payload: JSON.stringify(context.global.d.longitude)};\n//var Help= {payload: 'Help me'};\nmsg.payload = {\n                                  \n                                 'lat':parseFloat(latitude.payload),\n                                 'lon':parseFloat(longitude.payload),\n                                 \n                                \n                   \n              };\nmsg.location=msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 315,
+        "y": 528,
+        "wires": [
+            [
+                "7070eb29.cdb874"
+            ]
+        ]
+    },
+    {
+        "id": "6e758664.113318",
+        "type": "debug",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1666.9682278103298,
+        "y": 903.2777625189888,
+        "wires": []
+    },
+    {
+        "id": "56e5d312.3ec11c",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "Retrieving Gps Data",
+        "func": "var latitude = {payload: JSON.stringify(context.global.d.latitude)};\nvar longitude = {payload: JSON.stringify(context.global.d.longitude)};\n\nmsg.location=[];\nmsg.location.lat = parseFloat(latitude);\n\nmsg.location.lon= parseFloat(longitude);\n\n//msg.payload = {\n//\t\"latitude\":parseFloat(RMC[0]),\n\t//\"N-S\":RMC[4],\n//\t\"longitude\":parseFloat(RMC[1])\n\t//\"E-O\":RMC[6],\n//};\nmsg.payload=[msg.location.lat,msg.location.lon];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1269.8571166992188,
+        "y": 815.4999847412109,
+        "wires": [
+            [
+                "376fa7bc.123538"
+            ]
+        ]
+    },
+    {
+        "id": "a1675a01.efc54",
+        "type": "inject",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 1162.8571166992188,
+        "y": 886.9999847412109,
+        "wires": [
+            [
+                "56e5d312.3ec11c"
+            ]
+        ]
+    },
+    {
+        "id": "2272fa0d.fe1326",
+        "type": "debug",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1071.142822265625,
+        "y": 274.60711669921875,
+        "wires": []
+    },
+    {
+        "id": "8598774e.54a988",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload = JSON.stringify(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 916.6070556640625,
+        "y": 248,
+        "wires": [
+            [
+                "2272fa0d.fe1326",
+                "c3d559fd.e0fc8"
+            ]
+        ]
+    },
+    {
+        "id": "702f0d4b.cad134",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "format speech",
+        "func": "msg.payload = msg.speech;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1276.6070556640625,
+        "y": 123,
+        "wires": [
+            [
+                "eb52ffe1.3fcf8",
+                "b4e2fcda.18cc4"
+            ]
+        ]
+    },
+    {
+        "id": "eb52ffe1.3fcf8",
+        "type": "file",
+        "z": "9c7d72e.1b86d9",
+        "name": "create wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1649.6070556640625,
+        "y": 103,
+        "wires": []
+    },
+    {
+        "id": "b4e2fcda.18cc4",
+        "type": "delay",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1433.6070556640625,
+        "y": 171,
+        "wires": [
+            [
+                "bad12dc5.63d33"
+            ]
+        ]
+    },
+    {
+        "id": "bad12dc5.63d33",
+        "type": "file in",
+        "z": "9c7d72e.1b86d9",
+        "name": "read wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "format": "",
+        "x": 1604.6070556640625,
+        "y": 186,
+        "wires": [
+            [
+                "975dd049.42cf48"
+            ]
+        ]
+    },
+    {
+        "id": "975dd049.42cf48",
+        "type": "exec",
+        "z": "9c7d72e.1b86d9",
+        "command": "aplay /home/pi/temp/speech.wav",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "play audio",
+        "x": 1792.60693359375,
+        "y": 183.5,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "861364e0.727928",
+        "type": "debug",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1032,
+        "y": 483,
+        "wires": []
+    },
+    {
+        "id": "6e4a705a.8e6c6",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload = JSON.stringify(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 877.4642333984375,
+        "y": 456.39288330078125,
+        "wires": [
+            [
+                "861364e0.727928",
+                "9f2a4b46.9edd2"
+            ]
+        ]
+    },
+    {
+        "id": "56b8c7af.8df5d",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "format speech",
+        "func": "msg.payload = msg.speech;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1237.4642333984375,
+        "y": 331.39288330078125,
+        "wires": [
+            [
+                "99e9c783.91afa",
+                "981b2c19.23ccb"
+            ]
+        ]
+    },
+    {
+        "id": "99e9c783.91afa",
+        "type": "file",
+        "z": "9c7d72e.1b86d9",
+        "name": "create wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1547.4642333984375,
+        "y": 311.39288330078125,
+        "wires": []
+    },
+    {
+        "id": "981b2c19.23ccb",
+        "type": "delay",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1394.4642333984375,
+        "y": 379.39288330078125,
+        "wires": [
+            [
+                "3d543234.1651ce"
+            ]
+        ]
+    },
+    {
+        "id": "3d543234.1651ce",
+        "type": "file in",
+        "z": "9c7d72e.1b86d9",
+        "name": "read wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "format": "",
+        "x": 1565.4642333984375,
+        "y": 394.39288330078125,
+        "wires": [
+            [
+                "1a10c5ce.7d1472"
+            ]
+        ]
+    },
+    {
+        "id": "1a10c5ce.7d1472",
+        "type": "exec",
+        "z": "9c7d72e.1b86d9",
+        "command": "aplay /home/pi/temp/speech.wav",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "play audio",
+        "x": 1753.464111328125,
+        "y": 391.89288330078125,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "48f8815e.a90dc8",
+        "type": "debug",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1024,
+        "y": 686,
+        "wires": []
+    },
+    {
+        "id": "aac6f272.b7329",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload = JSON.stringify(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 869.4642333984375,
+        "y": 659.3928833007812,
+        "wires": [
+            [
+                "48f8815e.a90dc8",
+                "fb59682e.af97d"
+            ]
+        ]
+    },
+    {
+        "id": "abee3421.cb0f3",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "format speech",
+        "func": "msg.payload = msg.speech;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1229.4642333984375,
+        "y": 534.3928833007812,
+        "wires": [
+            [
+                "5f2bc274.5edc2c",
+                "a60396e6.0d7408"
+            ]
+        ]
+    },
+    {
+        "id": "5f2bc274.5edc2c",
+        "type": "file",
+        "z": "9c7d72e.1b86d9",
+        "name": "create wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1539.4642333984375,
+        "y": 514.3928833007812,
+        "wires": []
+    },
+    {
+        "id": "a60396e6.0d7408",
+        "type": "delay",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1386.4642333984375,
+        "y": 582.3928833007812,
+        "wires": [
+            [
+                "3c0c4956.d76a7e"
+            ]
+        ]
+    },
+    {
+        "id": "3c0c4956.d76a7e",
+        "type": "file in",
+        "z": "9c7d72e.1b86d9",
+        "name": "read wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "format": "",
+        "x": 1557.4642333984375,
+        "y": 597.3928833007812,
+        "wires": [
+            [
+                "a5c2c1e0.dc4718"
+            ]
+        ]
+    },
+    {
+        "id": "a5c2c1e0.dc4718",
+        "type": "exec",
+        "z": "9c7d72e.1b86d9",
+        "command": "aplay /home/pi/temp/speech.wav",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "play audio",
+        "x": 1745.464111328125,
+        "y": 594.8928833007812,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "f7a814fa.1f5c7",
+        "type": "debug",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 950,
+        "y": 191.60711669921875,
+        "wires": []
+    },
+    {
+        "id": "3ff5a5ae.7ab0c2",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "func": "msg.payload = JSON.stringify(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 795.4642333984375,
+        "y": 165,
+        "wires": [
+            [
+                "f7a814fa.1f5c7",
+                "297cd3f4.8c5474"
+            ]
+        ]
+    },
+    {
+        "id": "a0be0e40.06e9e8",
+        "type": "function",
+        "z": "9c7d72e.1b86d9",
+        "name": "format speech",
+        "func": "msg.payload = msg.speech;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1155.4642333984375,
+        "y": 40,
+        "wires": [
+            [
+                "f57b89cb.a6ab78",
+                "3594c540.8ca74a"
+            ]
+        ]
+    },
+    {
+        "id": "f57b89cb.a6ab78",
+        "type": "file",
+        "z": "9c7d72e.1b86d9",
+        "name": "create wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "x": 1465.4642333984375,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "3594c540.8ca74a",
+        "type": "delay",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 1312.4642333984375,
+        "y": 88,
+        "wires": [
+            [
+                "4ba6d378.f1568c"
+            ]
+        ]
+    },
+    {
+        "id": "4ba6d378.f1568c",
+        "type": "file in",
+        "z": "9c7d72e.1b86d9",
+        "name": "read wav",
+        "filename": "/home/pi/temp/speech.wav",
+        "format": "",
+        "x": 1483.4642333984375,
+        "y": 103,
+        "wires": [
+            [
+                "b3ff2e92.fd0bb"
+            ]
+        ]
+    },
+    {
+        "id": "b3ff2e92.fd0bb",
+        "type": "exec",
+        "z": "9c7d72e.1b86d9",
+        "command": "aplay /home/pi/temp/speech.wav",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "play audio",
+        "x": 1818.464111328125,
+        "y": 95.5,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "518d7612.27ea9",
+        "type": "exec",
+        "z": "9c7d72e.1b86d9",
+        "command": "mpack -s IMAGE  img.jpeg s2432868@gmail.com",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 712.4444580078125,
+        "y": 1045.333351135254,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a2f8166c.5663b8",
+        "type": "exec",
+        "z": "9c7d72e.1b86d9",
+        "command": "mpack -s History HistoryOfGPS s2432868@gmail.com",
+        "addpay": true,
+        "append": "",
+        "useSpawn": "",
+        "timer": "",
+        "name": "",
+        "x": 617.142822265625,
+        "y": 1212.857177734375,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "b5ff4883.d7fa18",
+        "type": "inject",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "x": 198.88888888888889,
+        "y": 1207.2222222222222,
+        "wires": [
+            [
+                "a2f8166c.5663b8"
+            ]
+        ]
+    },
+    {
+        "id": "624ca980.81907",
+        "type": "ui_button",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "group": "ad2a5673.3f69a8",
+        "order": 0,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "EatingPoint",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 95.96429443359375,
+        "y": 213.75,
+        "wires": [
+            [
+                "29656e53.916c62"
+            ]
+        ]
+    },
+    {
+        "id": "25796a8f.26a806",
+        "type": "ui_button",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "group": "ad2a5673.3f69a8",
+        "order": 0,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Market",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 136.25,
+        "y": 401,
+        "wires": [
+            [
+                "14bed0a4.36aeb7"
+            ]
+        ]
+    },
+    {
+        "id": "3bad965b.9e26ba",
+        "type": "ui_button",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "group": "ad2a5673.3f69a8",
+        "order": 0,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "PetrolPump",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 93,
+        "y": 41.5,
+        "wires": [
+            [
+                "21e98415.a82574"
+            ]
+        ]
+    },
+    {
+        "id": "99a923f6.c7462",
+        "type": "ui_button",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "group": "ad2a5673.3f69a8",
+        "order": 0,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Hospital",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 110,
+        "y": 559.5,
+        "wires": [
+            [
+                "c9f94788.387778"
+            ]
+        ]
+    },
+    {
+        "id": "b5c00458.64aff8",
+        "type": "ui_toast",
+        "z": "9c7d72e.1b86d9",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 740.9642944335938,
+        "y": 197.75,
+        "wires": []
+    },
+    {
+        "id": "48c65394.8dddbc",
+        "type": "ui_toast",
+        "z": "9c7d72e.1b86d9",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 791.25,
+        "y": 364,
+        "wires": []
+    },
+    {
+        "id": "a2af639a.90d62",
+        "type": "ui_toast",
+        "z": "9c7d72e.1b86d9",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 746,
+        "y": 22.5,
+        "wires": []
+    },
+    {
+        "id": "914b98a0.1d4d18",
+        "type": "ui_toast",
+        "z": "9c7d72e.1b86d9",
+        "position": "top right",
+        "displayTime": "5",
+        "highlight": "",
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "topic": "",
+        "name": "",
+        "x": 765,
+        "y": 522.5,
+        "wires": []
+    },
+    {
+        "id": "fb59682e.af97d",
+        "type": "watson-text-to-speech",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_MichaelVoice",
+        "voicehidden": "en-US_MichaelVoice",
+        "format": "audio/wav",
+        "password": "YDkPMVtch5Cu",
+        "payload-response": true,
+        "default-endpoint": false,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 1029,
+        "y": 586,
+        "wires": [
+            [
+                "abee3421.cb0f3"
+            ]
+        ]
+    },
+    {
+        "id": "b6634670.2fed1",
+        "type": "google places",
+        "z": "9c7d72e.1b86d9",
+        "reqType": "placesNearby",
+        "googleAPI": "",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "query": "",
+        "radius": "1000",
+        "rankBy": "prominence",
+        "keyword": "restuarant",
+        "language": "",
+        "minPrice": "",
+        "maxPrice": "",
+        "placeName": "",
+        "placeId": "",
+        "extensions": "",
+        "openNow": "",
+        "types": "",
+        "outputnumber": "1",
+        "outputas": "single",
+        "x": 446.25,
+        "y": 286.25,
+        "wires": [
+            [
+                "2d30dc6.c1aad24"
+            ]
+        ]
+    },
+    {
+        "id": "be3583e.88b6a",
+        "type": "google places",
+        "z": "9c7d72e.1b86d9",
+        "reqType": "placesNearby",
+        "googleAPI": "",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "query": "",
+        "radius": "2000",
+        "rankBy": "prominence",
+        "keyword": "market",
+        "language": "",
+        "minPrice": "",
+        "maxPrice": "",
+        "placeName": "",
+        "placeId": "",
+        "extensions": "",
+        "openNow": "",
+        "types": "",
+        "outputnumber": "1",
+        "outputas": "single",
+        "x": 496.53570556640625,
+        "y": 452.5,
+        "wires": [
+            [
+                "6167eae.112f894"
+            ]
+        ]
+    },
+    {
+        "id": "fb071f2f.9af93",
+        "type": "google places",
+        "z": "9c7d72e.1b86d9",
+        "reqType": "placesNearby",
+        "googleAPI": "",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "query": "",
+        "radius": "3000",
+        "rankBy": "prominence",
+        "keyword": "PetrolPump",
+        "language": "",
+        "minPrice": "",
+        "maxPrice": "",
+        "placeName": "",
+        "placeId": "",
+        "extensions": "",
+        "openNow": "",
+        "types": "",
+        "outputnumber": "1",
+        "outputas": "single",
+        "x": 451.28570556640625,
+        "y": 111,
+        "wires": [
+            [
+                "d78f7905.ba8288"
+            ]
+        ]
+    },
+    {
+        "id": "7070eb29.cdb874",
+        "type": "google places",
+        "z": "9c7d72e.1b86d9",
+        "reqType": "placesNearby",
+        "googleAPI": "",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "query": "",
+        "radius": "3000",
+        "rankBy": "prominence",
+        "keyword": "Hospital",
+        "language": "",
+        "minPrice": "",
+        "maxPrice": "",
+        "placeName": "",
+        "placeId": "",
+        "extensions": "",
+        "openNow": "",
+        "types": "",
+        "outputnumber": "1",
+        "outputas": "single",
+        "x": 470.28570556640625,
+        "y": 611,
+        "wires": [
+            [
+                "f2ec6e85.c7737"
+            ]
+        ]
+    },
+    {
+        "id": "376fa7bc.123538",
+        "type": "google geocoding",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "geocodeBy": "coordinates",
+        "address": "",
+        "lat": "",
+        "lon": "",
+        "googleAPI": "",
+        "bounds": "",
+        "language": "",
+        "region": "",
+        "components": "",
+        "x": 1445.8571166992188,
+        "y": 869.4999847412109,
+        "wires": [
+            [
+                "6e758664.113318"
+            ]
+        ]
+    },
+    {
+        "id": "3b79aa46.ee25a6",
+        "type": "camerapi-takephoto",
+        "z": "9c7d72e.1b86d9",
+        "filemode": "1",
+        "filename": "img.jpeg",
+        "filedefpath": "1",
+        "filepath": "/home/pi",
+        "fileformat": "jpeg",
+        "resolution": "1",
+        "rotation": "0",
+        "fliph": "0",
+        "flipv": "0",
+        "brightness": "50",
+        "contrast": "0",
+        "sharpness": "0",
+        "imageeffect": "none",
+        "name": "",
+        "x": 296.75,
+        "y": 1039.5,
+        "wires": [
+            [
+                "518d7612.27ea9"
+            ]
+        ]
+    },
+    {
+        "id": "297cd3f4.8c5474",
+        "type": "watson-text-to-speech",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_LisaVoice",
+        "voicehidden": "en-US_LisaVoice",
+        "format": "audio/wav",
+        "password": "YDkPMVtch5Cu",
+        "payload-response": true,
+        "default-endpoint": false,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 956,
+        "y": 89,
+        "wires": [
+            [
+                "a0be0e40.06e9e8"
+            ]
+        ]
+    },
+    {
+        "id": "c3d559fd.e0fc8",
+        "type": "watson-text-to-speech",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_LisaVoice",
+        "voicehidden": "en-US_LisaVoice",
+        "format": "audio/wav",
+        "password": "YDkPMVtch5Cu",
+        "payload-response": true,
+        "default-endpoint": false,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 1094,
+        "y": 225,
+        "wires": [
+            [
+                "702f0d4b.cad134"
+            ]
+        ]
+    },
+    {
+        "id": "9f2a4b46.9edd2",
+        "type": "watson-text-to-speech",
+        "z": "9c7d72e.1b86d9",
+        "name": "",
+        "lang": "en-US",
+        "langhidden": "en-US",
+        "langcustom": "NoCustomisationSetting",
+        "langcustomhidden": "",
+        "voice": "en-US_LisaVoice",
+        "voicehidden": "en-US_LisaVoice",
+        "format": "audio/wav",
+        "password": "YDkPMVtch5Cu",
+        "payload-response": true,
+        "default-endpoint": false,
+        "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+        "x": 1035,
+        "y": 361,
+        "wires": [
+            [
+                "56b8c7af.8df5d"
+            ]
+        ]
+    },
+    {
+        "id": "ad2a5673.3f69a8",
+        "type": "ui_group",
+        "z": 0,
+        "name": "NearByPlace",
+        "tab": "ca99c1d5.9d897",
+        "disp": true,
+        "width": "5"
+    },
+    {
+        "id": "ca99c1d5.9d897",
+        "type": "ui_tab",
+        "z": 0,
+        "name": "Home",
+        "icon": "dashboard"
+    }
+]
